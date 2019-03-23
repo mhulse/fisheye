@@ -1,5 +1,4 @@
 const TinyPlanet = require('../index');
-const { util } = require('../lib/index');
 
 const options = {};
 

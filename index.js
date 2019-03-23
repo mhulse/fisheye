@@ -11,9 +11,17 @@ module.exports = class TinyPlanet {
 
   }
 
-  init() {
+  async init() {
 
     const o = this._options;
+    const dep = 'exiftool';
+    const check = await exec(
+      commands['check for system dep']('exiftool')
+    );
+
+    if ( ! (check && check.stdout && check.stdout.toString().trim().length)) {
+      throw new TypeError(`System dependency not installed: \`${dep}\``);
+    }
 
     if ( ! ((typeof o.input === 'string') && (o.input.length > 0) && util.pathExists(o.input))) {
       throw new TypeError(`Expected \`input\` to be a string and resolve to a path that exists, got \`${o.input}\` (${typeof o.input})`);
