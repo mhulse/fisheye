@@ -1,17 +1,25 @@
 const TinyPlanet = require('../index');
+const { util } = require('../lib/index');
 
-const options = {
-  input: './test/AF1QipMspd7xEt_zPak1U5R3z250U9tOLpPy_1L6aNsA.jpg',
-  output: './test',
-};
+const options = {};
 
 (async () => {
 
+  options.input = './test/AF1QipMspd7xEt_zPak1U5R3z250U9tOLpPy_1L6aNsA.jpg';
+  options.output = options.input.replace('.jpg', '-tinyplanet.jpg');
+
   console.log('before');
 
-  const planet = await new TinyPlanet(options);
+  try {
 
-  console.log(planet);
+    const planet = await new TinyPlanet(options);
+    console.log(planet);
+
+  } catch(err) {
+
+    console.error(err);
+
+  }
 
   console.log('after');
 
