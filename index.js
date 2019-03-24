@@ -14,9 +14,10 @@ module.exports = class TinyPlanet {
   async init() {
 
     const o = this._options;
-    const dep = 'exiftool';
+
+    const dep = 'magick';
     const check = await exec(
-      commands['check for system dep']('exiftool')
+      commands['check for system dep'](dep)
     );
 
     if ( ! (check && check.stdout && check.stdout.toString().trim().length)) {
