@@ -32,11 +32,11 @@ module.exports = class TinyPlanet {
       throw new TypeError(`Expected \`output\` to be a string and resolve to a path that exists, got \`${o.output}\` (${typeof o.output})`);
     }
 
-    return this.make();
+    return this.main();
 
   };
 
-  async make() {
+  async main() {
 
     const o = this._options;
 
