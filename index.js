@@ -24,11 +24,11 @@ module.exports = class TinyPlanet {
       throw new TypeError(`System dependency not installed: \`${dep}\``);
     }
 
-    if ( ! ((typeof o.input === 'string') && (o.input.length > 0) && util.pathExists(o.input))) {
+    if ( ! ((typeof o.input === 'string') && (o.input.length > 0) && await util.pathExists(o.input))) {
       throw new TypeError(`Expected \`input\` to be a string and resolve to a path that exists, got \`${o.input}\` (${typeof o.input})`);
     }
 
-    if ( ! ((typeof o.output === 'string') && (o.output.length > 0) && util.pathExists(o.output, true))) {
+    if ( ! ((typeof o.output === 'string') && (o.output.length > 0) && await util.pathExists(o.output, true))) {
       throw new TypeError(`Expected \`output\` to be a string and resolve to a path that exists, got \`${o.output}\` (${typeof o.output})`);
     }
 
