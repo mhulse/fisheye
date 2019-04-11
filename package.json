@@ -5,7 +5,8 @@
   "author": "Michael Hulse",
   "license": "Apache 2.0",
   "scripts": {
-    "test": "mocha ./test/test.js"
+    "test": "mocha ./test/test.js",
+    "example": "node test/example.js"
   },
   "repository": {
     "type": "git",
