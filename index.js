@@ -1,60 +1,98 @@
-const exec = require('await-exec');
-const { commands, util } = require('./lib/index');
+const magick = require('./lib/magick');
+const validate = require('./lib/validate');
 
-module.exports = class Fisheye {
+module.exports = (() => {
 
-  constructor(options = {}) {
+  class Fisheye {
 
-    this._options = options;
+    constructor({
+      directory = '',
+      image = undefined,
+      name = '',
+      view = '',
+    } = {}) {
 
-    return this.init();
+      this.directory = directory;
+      this.image = image;
+      this.name = name;
+      this.view = view;
+
+    }
+
+    set directory(directory) {
+
+      this._directory = directory;
+
+    }
+
+    get directory() {
+
+      return this._directory;
+
+    }
+
+    set image(image) {
+
+      this._image = image;
+
+    }
+
+    get image() {
+
+      return this._image;
+
+    }
+
+    set view(view) {
+
+      this._view = view;
+
+    }
+
+    get view() {
+
+      return this._view;
+
+    }
+
+    set name(name) {
+
+      this._name = name;
+
+    }
+
+    get name() {
+
+      return this._name;
+
+    }
+
+    async create() {
+
+      const {
+        command,
+        input,
+        output,
+      } = await validate({
+        directory: this.directory,
+        image: this.image,
+        name: this.name,
+        view: this.view,
+      });
+
+      const result = await magick(command, input, output);
+
+      return {
+        ... result,
+        command,
+        input,
+        output,
+      };
+
+    }
 
   }
 
-  async init() {
+  return Fisheye;
 
-    const o = this._options;
-
-    const dep = 'magick';
-    const check = await exec(
-      commands['check for system dep'](dep)
-    );
-
-    if ( ! (check && check.stdout && check.stdout.toString().trim().length)) {
-      throw new TypeError(`System dependency not installed: \`${dep}\``);
-    }
-
-    if ( ! ((typeof o.input === 'string') && (o.input.length > 0) && await util.pathExists(o.input))) {
-      throw new TypeError(`Expected \`input\` to be a string and resolve to a path that exists, got \`${o.input}\` (${typeof o.input})`);
-    }
-
-    if ( ! ((typeof o.output === 'string') && (o.output.length > 0) && await util.pathExists(o.output, true))) {
-      throw new TypeError(`Expected \`output\` to be a string and resolve to a path that exists, got \`${o.output}\` (${typeof o.output})`);
-    }
-
-    return this.main();
-
-  };
-
-  async main() {
-
-    const o = this._options;
-
-    const magick = await exec(
-      commands['make fisheye']({
-        input: util.resolvePath(o.input),
-        output: util.resolvePath(o.output),
-      })
-    );
-
-    const stderr = magick.stderr.toString().trim();
-
-    if (stderr) {
-      throw new Error(stderr);
-    } else {
-      return magick.stdout.toString().trim();
-    }
-
-  };
-
-};
+})();

@@ -6,11 +6,32 @@ Equirectangular to fisheye maker!
 
 ### Input
 
-![](example-input.jpg)
+**Equirectangular:**
+
+![](input.jpg)
 
 ### Output
 
-![](example-output.jpg)
+**Tiny Planet:**
+
+![](output_tiny-planet.jpg)
+
+**Big Sky:**
+
+![](output_big-sky.jpg)
+
+## Options
+
+option | description | default
+--- | --- | ---
+`view` | conversion view type | `tiny-planet` or `big-sky`
+`image` | **required**, local path to equirectangular image | `undefined`
+`directory` | output directory if different from `image` | input image’s directory
+`name` | specify name of output image | input image’s name
+
+## Usage
+
+See: [`example.js`](./tests/example.js)
 
 ## License
 
