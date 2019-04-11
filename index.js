@@ -1,7 +1,7 @@
 const exec = require('await-exec');
 const { commands, util } = require('./lib/index');
 
-module.exports = class TinyPlanet {
+module.exports = class Fisheye {
 
   constructor(options = {}) {
 
@@ -41,7 +41,7 @@ module.exports = class TinyPlanet {
     const o = this._options;
 
     const magick = await exec(
-      commands['make tiny planet']({
+      commands['make fisheye']({
         input: util.resolvePath(o.input),
         output: util.resolvePath(o.output),
       })

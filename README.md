@@ -1,6 +1,6 @@
-# Tiny Planet
+# Fisheye
 
-Equirectangular to tiny planet maker!
+Equirectangular to fisheye maker!
 
 ## Example
 
