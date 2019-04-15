@@ -2,6 +2,10 @@
 
 Equirectangular to fisheye maker!
 
+Sorry, macOS only …
+
+**Depends on:** [ImageMagick](https://imagemagick.org/)
+
 ## Example
 
 ### Input
@@ -68,8 +72,8 @@ A **HUGE** thanks goes out to these folks:
 **Links:**
 
 - [Reverse polar coordinates?](https://imagemagick.org/discourse-server/viewtopic.php?t=35817)
-- [PANO2FISHEYE](http://www.fmwconcepts.com/imagemagick/pano2fisheye/index.php)
 - [Rule of thumb: When to use +repage?](https://imagemagick.org/discourse-server/viewtopic.php?t=35826)
+- [PANO2FISHEYE](http://www.fmwconcepts.com/imagemagick/pano2fisheye/index.php)
 
 ## License
 
