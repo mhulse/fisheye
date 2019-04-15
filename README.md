@@ -33,6 +33,44 @@ option | description | default
 
 See: [`example.js`](./tests/example.js)
 
+**Result if successful:**
+
+```js
+{
+  code: 0,
+  command: 'tiny-planet',
+  input: '/Users/…/fisheye/input.jpg',
+  output: '/Users/…/fisheye/test/output_tiny-planet.jpg'
+}
+```
+
+**Result if unsuccessful:**
+
+```js
+{
+  cmd: "magick convert undefined -virtual-pixel mirror -background black -roll '+50%+0%' -rotate 180 +distort polar 0 /Users/…/fisheye/test/output_tiny-planet.jpg",
+  code: 1,
+  stderr: "convert: unable to open image 'undefined': No such file or directory @ error/blob.c/OpenBlob/3495.\nconvert: no decode delegate for this image format `' @ error/constitute.c/ReadImage/556.\nconvert: no images defined `/Users/…/fisheye/test/output_tiny-planet.jpg' @ error/convert.c/ConvertImageCommand/3300.",
+  command: 'tiny-planet',
+  input: '/Users/…/fisheye/input.jpg',
+  output: '/Users/…/fisheye/test/output_tiny-planet.jpg'
+}
+```
+
+## Thanks!
+
+A **HUGE** thanks goes out to these folks:
+
+- [fmw42](https://imagemagick.org/discourse-server/memberlist.php?mode=viewprofile&u=9098) (aka Fred of [Fred’s ImageMagick Scripts](http://www.fmwconcepts.com/imagemagick/index.php))
+- [GeeMack](https://imagemagick.org/discourse-server/memberlist.php?mode=viewprofile&u=31324)
+- [snibgo](https://imagemagick.org/discourse-server/memberlist.php?mode=viewprofile&u=16096)
+
+**Links:**
+
+- [Reverse polar coordinates?](https://imagemagick.org/discourse-server/viewtopic.php?t=35817)
+- [PANO2FISHEYE](http://www.fmwconcepts.com/imagemagick/pano2fisheye/index.php)
+- [Rule of thumb: When to use +repage?](https://imagemagick.org/discourse-server/viewtopic.php?t=35826)
+
 ## License
 
 Copyright © 2019 [Michael Hulse](http://mky.io).
