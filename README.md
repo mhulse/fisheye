@@ -24,7 +24,7 @@ Equirectangular to fisheye maker!
 
 option | description | default
 --- | --- | ---
-`view` | conversion view type | `tiny-planet` or `big-sky`
+`view` | conversion view type: `tiny-planet` or `big-sky` | `tiny-planet`
 `image` | **required**, local path to equirectangular image | `undefined`
 `directory` | output directory if different from `image` | input image’s directory
 `name` | specify name of output image | input image’s name
