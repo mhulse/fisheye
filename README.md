@@ -35,7 +35,7 @@ option | description | default
 
 ## Usage
 
-See: [`example.js`](./tests/example.js)
+See: [`example.js`](./test/example.js)
 
 **Result if successful:**
 
