@@ -48,18 +48,7 @@ See: [`example.js`](./tests/example.js)
 }
 ```
 
-**Result if unsuccessful:**
-
-```js
-{
-  cmd: "magick convert undefined -virtual-pixel mirror -background black -roll '+50%+0%' -rotate 180 +distort polar 0 /Users/…/fisheye/test/output_tiny-planet.jpg",
-  code: 1,
-  stderr: "convert: unable to open image 'undefined': No such file or directory @ error/blob.c/OpenBlob/3495.\nconvert: no decode delegate for this image format `' @ error/constitute.c/ReadImage/556.\nconvert: no images defined `/Users/…/fisheye/test/output_tiny-planet.jpg' @ error/convert.c/ConvertImageCommand/3300.",
-  command: 'tiny-planet',
-  input: '/Users/…/fisheye/input.jpg',
-  output: '/Users/…/fisheye/test/output_tiny-planet.jpg'
-}
-```
+Throws an `Error` otherwise.
 
 ## Thanks!
 
