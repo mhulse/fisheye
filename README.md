@@ -28,7 +28,7 @@ Sorry, macOS only …
 
 option | description | default
 --- | --- | ---
-`view` | conversion view type: `tiny-planet` or `big-sky` | `tiny-planet`
+`view` | conversion view type: `tiny-planet` or `big-sky` | random view type
 `image` | **required**, local path to equirectangular image | `undefined`
 `directory` | output directory if different from `image` | input image’s directory
 `name` | specify name of output image | input image’s name
