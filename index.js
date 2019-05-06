@@ -5,7 +5,7 @@ module.exports = (() => {
 
   class Fisheye {
 
-    constructor({
+    constructor ({
       directory = '',
       image = undefined,
       name = '',
@@ -19,55 +19,55 @@ module.exports = (() => {
 
     }
 
-    set directory(directory) {
+    set directory (directory) {
 
       this._directory = directory;
 
     }
 
-    get directory() {
+    get directory () {
 
       return this._directory;
 
     }
 
-    set image(image) {
+    set image (image) {
 
       this._image = image;
 
     }
 
-    get image() {
+    get image () {
 
       return this._image;
 
     }
 
-    set view(view) {
+    set view (view) {
 
       this._view = view;
 
     }
 
-    get view() {
+    get view () {
 
       return this._view;
 
     }
 
-    set name(name) {
+    set name (name) {
 
       this._name = name;
 
     }
 
-    get name() {
+    get name () {
 
       return this._name;
 
     }
 
-    async create() {
+    async create () {
 
       const {
         command,
