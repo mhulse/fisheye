@@ -1,5 +1,6 @@
 {
   "name": "fisheye",
+  "type": "module",
   "version": "1.0.0",
   "description": "Equirectangular to fisheye maker!",
   "author": "Michael Hulse",
@@ -15,11 +16,11 @@
   "main": "index.js",
   "dependencies": {
     "await-exec": "^0.1.2",
-    "fs-extra": "^7.0.1",
-    "untildify": "^3.0.3"
+    "fs-extra": "^11.3.0",
+    "untildify": "^5.0.0"
   },
   "devDependencies": {
-    "eslint": "^5.15.3",
-    "mocha": "^6.0.2"
+    "eslint": "^9.28.0",
+    "mocha": "^11.5.0"
   }
 }

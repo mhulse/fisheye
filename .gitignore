@@ -91,4 +91,4 @@ sitemap.xml.gz*~
 ####################
 
 node_modules
-test/output*
+test/tmp/

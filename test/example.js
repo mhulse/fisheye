@@ -1,59 +1,39 @@
-const Fisheye = require('../index');
+import Fisheye from '../index.js'
 
-(async () => {
+console.log('before')
 
-  console.log('before');
+const uniqueName = (base) => `${base}_${Date.now()}`
 
-  const fisheye = new Fisheye({
-    image: './input.jpg',
-    directory: './test',
-    name: 'output',
-  });
+const fisheye = new Fisheye({
+  image: './input.jpg',
+  directory: './test/tmp',
+  name: uniqueName('output'),
+})
 
-  try {
+try {
+  fisheye.view = 'tiny-planet'
+  const result = await fisheye.create()
+  console.log(result)
+} catch (err) {
+  console.error(err)
+}
 
-    fisheye.view = 'tiny-planet';
+try {
+  fisheye.view = 'big-sky'
+  const result = await fisheye.create()
+  console.log(result)
+} catch (err) {
+  console.error(err)
+}
 
-    const result = await fisheye.create();
+try {
+  fisheye.view = 'big-sky'
+  fisheye.name = ''
+  fisheye.directory = '~/Desktop/'
+  const result = await fisheye.create()
+  console.log(result)
+} catch (err) {
+  console.error(err)
+}
 
-    console.log(result);
-
-  } catch (err) {
-
-    console.error(err);
-
-  }
-
-  try {
-
-    fisheye.view = 'big-sky';
-
-    const result = await fisheye.create();
-
-    console.log(result);
-
-  } catch (err) {
-
-    console.error(err);
-
-  }
-
-  try {
-
-    fisheye.view = 'big-sky';
-    fisheye.name = '';
-    fisheye.directory = '~/Desktop/';
-
-    const result = await fisheye.create();
-
-    console.log(result);
-
-  } catch (err) {
-
-    console.error(err);
-
-  }
-
-  console.log('after');
-
-})();
+console.log('after')
